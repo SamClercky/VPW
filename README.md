@@ -1,5 +1,7 @@
 # VPW
 
+[Originele vragen (officieel)](https://github.com/vlaamseprogrammeerwedstrijd/opgaves)
+
 Bevat vragen van vorige jaren met een aantal oplossingen. Vragen worden
 aangemaakt op basis van de `template`.
 
