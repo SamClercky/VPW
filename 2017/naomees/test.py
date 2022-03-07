@@ -26,7 +26,10 @@ class OplossingTests(unittest.TestCase):
 
     def file_test(self, in_data, ex_data):
         """Test program from file input"""
-        pass
+        for i in range(int(in_data[0])):
+            data = in_data[1+i*5:1+i*5+5]
+            self.assertEqual(ex_data[i].rstrip(), o.naomees(i+1, data))
+
 
 if __name__ == "__main__":
     unittest.main()
