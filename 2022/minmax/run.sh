@@ -18,7 +18,7 @@ else
     echo "Not yet correct"
 fi
 
-echo "$timing_program"
+echo $timing_program
 #rm wedstrijd.temp_uitvoer
 
 echo "=============================== END ===================================="
