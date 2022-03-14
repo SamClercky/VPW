@@ -19,3 +19,5 @@ if __name__ == "__main__":
 
     for ki in range(1, k+1):
         print(" ".join(map(str, minmax(ki, collect_list()))))
+
+#test
