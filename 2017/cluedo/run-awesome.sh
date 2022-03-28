@@ -19,5 +19,6 @@ else
 fi
 
 hyperfine "python ./oplossing.py3 <wedstrijd.invoer"
+rm wedstrijd.uitvoer_temp
 
 echo "=============================== END ===================================="
