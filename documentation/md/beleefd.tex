@@ -1,0 +1,99 @@
+\hypertarget{beleefd}{%
+\section{Beleefd}\label{beleefd}}
+
+Programmeer technisch niet al te moeilijk. Moeilijk door wiskundige
+theorie.
+
+Interessante linken: * \url{https://nrich.maths.org/2074} *
+\url{https://en.wikipedia.org/wiki/Polite_number}
+
+Beleefd tot 20:
+
+\begin{verbatim}
+5 = 2 + ... + 3
+6 = 1 + ... + 3
+7 = 3 + ... + 4
+9 = 2 + ... + 4
+9 = 4 + ... + 5
+10 = 1 + ... + 4
+11 = 5 + ... + 6
+12 = 3 + ... + 5
+13 = 6 + ... + 7
+14 = 2 + ... + 5
+15 = 1 + ... + 5
+15 = 4 + ... + 6
+15 = 7 + ... + 8
+17 = 8 + ... + 9
+18 = 3 + ... + 6
+18 = 5 + ... + 7
+19 = 9 + ... + 10
+20 = 2 + ... + 6
+\end{verbatim}
+
+\hypertarget{vinden-van-hoeveelheid-beleefde-nummers}{%
+\subsection{Vinden van hoeveelheid beleefde
+nummers}\label{vinden-van-hoeveelheid-beleefde-nummers}}
+
+Het aantal oneven delers groter dat 1 = aantal te vinden sequenties
+
+\hypertarget{aantal-sequenties}{%
+\subsubsection{Aantal sequenties}\label{aantal-sequenties}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Decompositie in priem getallen
+\item
+  Neem de machten van de priemfactoren groter dan 1 en +1 voor elk
+\item
+  Vermenigvuldig alle en dan -1
+\end{enumerate}
+
+Vb. 90:
+
+\begin{verbatim}
+90 = 2 * 3^2 * 5^1
+2,1 => (2+1) * (1+1) -1 = 5
+\end{verbatim}
+
+\hypertarget{constructie-sequentie}{%
+\subsubsection{Constructie sequentie}\label{constructie-sequentie}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# x is totaal van som}
+\CommentTok{\# y is oneven deler}
+\NormalTok{x }\OperatorTok{=} \BuiltInTok{sum}\NormalTok{(i }\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(x}\OperatorTok{/}\NormalTok{y }\OperatorTok{{-}}\NormalTok{ (y}\OperatorTok{{-}}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}\NormalTok{, x}\OperatorTok{/}\NormalTok{y }\OperatorTok{+}\NormalTok{ (y}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}\OperatorTok{+}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Het volstaat dus om enkel een priemfactorisatie te doen en de uiterste
+te berekenen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eerste }\OperatorTok{=}\NormalTok{ x}\OperatorTok{/}\NormalTok{y }\OperatorTok{{-}}\NormalTok{ (y}\OperatorTok{{-}}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}
+\NormalTok{laatste }\OperatorTok{=}\NormalTok{ x}\OperatorTok{/}\NormalTok{y }\OperatorTok{+}\NormalTok{ (y}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# https://stackoverflow.com/questions/567222/simple{-}prime{-}number{-}generator{-}in{-}python}
+\KeywordTok{def}\NormalTok{ is\_prime(num):}
+    \ControlFlowTok{if}\NormalTok{ num }\OperatorTok{\textless{}} \DecValTok{2}\NormalTok{:         }\ControlFlowTok{return} \VariableTok{False}
+    \ControlFlowTok{elif}\NormalTok{ num }\OperatorTok{\textless{}} \DecValTok{4}\NormalTok{:       }\ControlFlowTok{return} \VariableTok{True}
+    \ControlFlowTok{elif} \KeywordTok{not}\NormalTok{ num }\OperatorTok{\%} \DecValTok{2}\NormalTok{:   }\ControlFlowTok{return} \VariableTok{False}
+    \ControlFlowTok{elif}\NormalTok{ num }\OperatorTok{\textless{}} \DecValTok{9}\NormalTok{:       }\ControlFlowTok{return} \VariableTok{True}
+    \ControlFlowTok{elif} \KeywordTok{not}\NormalTok{ num }\OperatorTok{\%} \DecValTok{3}\NormalTok{:   }\ControlFlowTok{return} \VariableTok{False}
+    \ControlFlowTok{else}\NormalTok{:}
+        \ControlFlowTok{for}\NormalTok{ n }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{5}\NormalTok{, }\BuiltInTok{int}\NormalTok{(math.sqrt(num) }\OperatorTok{+} \DecValTok{1}\NormalTok{), }\DecValTok{6}\NormalTok{):}
+            \ControlFlowTok{if} \KeywordTok{not}\NormalTok{ num }\OperatorTok{\%}\NormalTok{ n:}
+                \ControlFlowTok{return} \VariableTok{False}
+            \ControlFlowTok{elif} \KeywordTok{not}\NormalTok{ num }\OperatorTok{\%}\NormalTok{ (n }\OperatorTok{+} \DecValTok{2}\NormalTok{):}
+                \ControlFlowTok{return} \VariableTok{False}
+
+    \ControlFlowTok{return} \VariableTok{True}
+\end{Highlighting}
+\end{Shaded}

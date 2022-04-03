@@ -1,0 +1,40 @@
+\hypertarget{regels-afbreken}{%
+\section{Regels afbreken}\label{regels-afbreken}}
+
+\hypertarget{formule-rafeligheid}{%
+\subsection{Formule rafeligheid}\label{formule-rafeligheid}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lines }\OperatorTok{=}\NormalTok{ [}\StringTok{"Lijn 1 tekst"}\NormalTok{, }\StringTok{"Lijn 2 tekst"}\NormalTok{]}
+\NormalTok{max\_len\_regel }\OperatorTok{=} \BuiltInTok{max}\NormalTok{(}\BuiltInTok{len}\NormalTok{(line) }\ControlFlowTok{for}\NormalTok{ line }\KeywordTok{in}\NormalTok{ lines)}
+\NormalTok{rafel }\OperatorTok{=} \BuiltInTok{sum}\NormalTok{((max\_len\_regel }\OperatorTok{{-}} \BuiltInTok{len}\NormalTok{(line)}\OperatorTok{**}\DecValTok{2} \ControlFlowTok{for}\NormalTok{ line }\KeywordTok{in}\NormalTok{ lines))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{constructie-met-minimale-rafeligheid}{%
+\subsection{Constructie met minimale
+rafeligheid}\label{constructie-met-minimale-rafeligheid}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{max\_len }\OperatorTok{=} \DecValTok{80}
+\NormalTok{input\_text }\OperatorTok{=} \StringTok{"bla bla bla bla bla"}
+\NormalTok{input\_len }\OperatorTok{=} \BuiltInTok{len}\NormalTok{(input\_text)}
+\NormalTok{result }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{index }\OperatorTok{=} \DecValTok{0}
+\ControlFlowTok{while}\NormalTok{ index }\OperatorTok{\textless{}}\NormalTok{ input\_len:}
+\NormalTok{    start\_index }\OperatorTok{=}\NormalTok{ index}
+    \CommentTok{\# advance max\_len}
+\NormalTok{    index }\OperatorTok{+=} \DecValTok{80}
+    \ControlFlowTok{if}\NormalTok{ index }\OperatorTok{\textless{}}\NormalTok{ input\_len:}
+        \CommentTok{\# backtrack to prev whitespace}
+        \ControlFlowTok{while}\NormalTok{ input\_text[index] }\OperatorTok{!=} \StringTok{" "}\NormalTok{:}
+\NormalTok{            index }\OperatorTok{{-}=} \DecValTok{1}
+\NormalTok{        result.append(input\_text[start\_index:index])}
+\end{Highlighting}
+\end{Shaded}
+
+Opm: Het is waarschijnlijk mogelijk om de maximum en lengte van alle
+aparte onderdelen te berekenen in vorig stuk code. Er wordt niet
+gevraagd naar de geformateerde tekst, enkel de rafeligheid!
