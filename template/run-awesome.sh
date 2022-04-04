@@ -4,7 +4,7 @@ if [ -e "__pycache__" ]; then
     rm -r __pycache__ # make sure we get accurate time measure
 fi
 
-python ./oplossing.py3 <wedstrijd.invoer >wedstrijd.uitvoer_temp
+python ./oplossing.py <wedstrijd.invoer >wedstrijd.uitvoer_temp
 
 echo "========================== INPUT/EXPECTED/ACTUAL ======================="
 pr -m -t -W 150 wedstrijd.invoer wedstrijd.uitvoer wedstrijd.uitvoer_temp
@@ -18,7 +18,8 @@ else
     echo "Not yet correct"
 fi
 
-hyperfine "python ./oplossing.py3 <wedstrijd.invoer"
+hyperfine "python ./oplossing.py <wedstrijd.invoer"
 rm wedstrijd.uitvoer_temp
+cp ./oplossing.py oplossing.py3
 
 echo "=============================== END ===================================="
